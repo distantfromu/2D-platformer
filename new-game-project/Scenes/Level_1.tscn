@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=4 uid="uid://robdpeavuaad"]
+[gd_scene load_steps=7 format=4 uid="uid://robdpeavuaad"]
 
 [ext_resource type="Texture2D" uid="uid://bdglpujlv1hi5" path="res://Sprites/Backgrounds/backgroundForest.png" id="1_vnunq"]
 [ext_resource type="TileSet" uid="uid://pngokbeufoc3" path="res://Sprites/Tiles/new_tile_set.tres" id="2_nw7js"]
 [ext_resource type="PackedScene" uid="uid://bo0pwsa6hw5ue" path="res://Scenes/player.tscn" id="3_nh7xm"]
+[ext_resource type="PackedScene" uid="uid://c7tucv06dir7p" path="res://Scenes/enemy.tscn" id="4_nw7js"]
+[ext_resource type="PackedScene" uid="uid://bdos20ppdnsyg" path="res://Scenes/coin.tscn" id="5_nh7xm"]
+[ext_resource type="PackedScene" uid="uid://crr3vhrc00pyn" path="res://Scenes/end_flag.tscn" id="6_j0k67"]
 
 [node name="Main" type="Node2D"]
 
 [node name="BackgroundSprite" type="Sprite2D" parent="."]
-position = Vector2(243, -32)
+position = Vector2(243, -26)
 texture = ExtResource("1_vnunq")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -15,3 +18,39 @@ tile_map_data = PackedByteArray("AAAEAAEAAAABAAUAAAAFAAEAAAABAAUAAAAIAAEAAAABAAU
 tile_set = ExtResource("2_nw7js")
 
 [node name="Player" parent="." instance=ExtResource("3_nh7xm")]
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Coin4" parent="Coins" instance=ExtResource("5_nh7xm")]
+position = Vector2(440, 7)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("5_nh7xm")]
+position = Vector2(315, 7)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("5_nh7xm")]
+position = Vector2(153, 7)
+
+[node name="Coin" parent="Coins" instance=ExtResource("5_nh7xm")]
+position = Vector2(28, -10)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("4_nw7js")]
+position = Vector2(182, 63)
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("4_nw7js")]
+position = Vector2(359, 60)
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource("4_nw7js")]
+position = Vector2(528, 56)
+scale = Vector2(0.90776074, 0.92873293)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("4_nw7js")]
+position = Vector2(74, 48)
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("4_nw7js")]
+position = Vector2(1, 57)
+
+[node name="EndFlag" parent="." instance=ExtResource("6_j0k67")]
+position = Vector2(523, 18)
+scene_to_load = ExtResource("3_nh7xm")
